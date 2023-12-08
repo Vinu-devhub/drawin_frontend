@@ -34,7 +34,7 @@ const SelectionBtns = () => {
         }`}
         ref={(ref) => {
           if (ref && selectionsRef.current) {
-            selectionsRef.current[1] = ref;
+            selectionsRef.current[0] = ref;
           }
         }}
       >
@@ -46,7 +46,7 @@ const SelectionBtns = () => {
         }`}
         ref={(ref) => {
           if (ref && selectionsRef.current) {
-            selectionsRef.current[2] = ref;
+            selectionsRef.current[1] = ref;
           }
         }}
       >

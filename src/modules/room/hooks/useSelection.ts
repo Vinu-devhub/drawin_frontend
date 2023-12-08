@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { DEFAULT_MOVE } from "../../../constants/defaultMove";
 import { useBackground } from "../../../recoil/background";
 import { useOptionsValue } from "../../../recoil/options";
-// import { socket } from "../../../util/lib/socket";
+import { socket } from "../../../util/lib/socket";
 import { useCtxs } from "./useCtxs";
 import { useMoveImage } from "./useMoveImage";
 import { useRefs } from "./useRefs";
@@ -169,7 +169,7 @@ export const useSelection = (drawAllMoves: () => Promise<void>) => {
       },
     };
 
-    // socket.emit("draw", move);
+    socket.emit("draw", move);
 
     return move;
   };
@@ -219,8 +219,8 @@ export const useSelection = (drawAllMoves: () => Promise<void>) => {
 
   useEffect(() => {
     if (selectionsRef.current) {
-      const copyBtn = selectionsRef.current[1];
-      const deleteBtn = selectionsRef.current[2];
+      const copyBtn = selectionsRef.current[0];
+      const deleteBtn = selectionsRef.current[1];
 
       copyBtn.addEventListener("click", handleCopy);
       deleteBtn.addEventListener("click", createDeleteMove);
